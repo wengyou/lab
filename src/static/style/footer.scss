@@ -1,0 +1,28 @@
+.footerWrap{
+  display: flex;
+  justify-content: center;
+}
+.footer{
+  width: 64rem;
+  height: 8.25rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background: url("../images/foot.jpg");
+  .footerTop{
+    height: 7.125rem;
+    padding-top: 4.375rem;
+    p{
+      font-size: 0.8125rem;
+      margin-bottom: 0.625rem;
+    }
+    a{
+      cursor: pointer;
+    }
+  }
+  .footerBottom{
+    height: 1.125rem;
+    display: flex;
+    justify-content: center;
+
+  }
+}

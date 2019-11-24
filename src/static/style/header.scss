@@ -1,0 +1,22 @@
+header{
+  width: 64rem;
+  height: 7.75rem;
+  margin: 0 auto;
+  background: url("../images/h1.gif") no-repeat;
+  position: relative;
+}
+.row{
+  margin-top: 0.6rem;
+}
+//头部导航栏
+#headerNav{
+  position: absolute;
+  right: 3rem;
+  bottom: 0.5rem;
+  li{
+    margin-left: 1rem;
+  }
+  .navItem{
+    cursor: pointer;
+  }
+}

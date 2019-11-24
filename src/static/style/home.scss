@@ -1,0 +1,31 @@
+
+.wrap{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.homeWrap{
+  width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  padding: 10px 10px;
+}
+.homeLeft{
+  width: 460px;
+  height: 460px;
+  border: 1px solid blue;
+  Card{
+    min-height: 450px;
+    background: green;
+  }
+}
+.homeRight{
+  width: 530px;
+  height: 460px;
+  div{
+    width: 530px;
+    height: 460px;
+  }
+  border: 1px solid green;
+}
