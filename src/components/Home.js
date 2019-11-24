@@ -1,72 +1,108 @@
-import React from "react";
-import {Table, Card, Carousel} from "antd";
+import React, {useEffect, useState} from "react";
+import {connect} from "react-redux";
+import {Table, Carousel, Card, Modal} from "antd";
 import "../static/style/home.scss";
-import  img1 from "../static/images/1.jpg"
-import  img2 from "../static/images/2.jpg"
-import  img3 from "../static/images/3.jpg"
-import  img4 from "../static/images/4.jpg"
+import * as announce from "../redux/actionCreators/announce";
+import "../redux/sagas/announceSagas/announceSaga"
+
 //首页的轮播图和公告
-const Home = () => {
-    const dataSource = [
-            {
-                key: 1,
-                tit: 'hhahhah',
-                time: '12345'
-            },
-            {
-                key: 2,
-                tit: 'fghjkah',
-                time: '876543'
-            },
-            {
-                key: 3,
-                tit: 'hhahhah',
-                time: '12345'
-            },
-            {
-                key: 4,
-                tit: 'fghjkah',
-                time: '876543'
-            },
+const Home = props => {
+    const {total, handleFetchAnnounceRes, announceResource } = props;
+    // const [modalContent, setModalContent] = useState("");
+    // const [modalUserName, setModalUserName] = useState("");
+    // const [modalFileName, setModalFileName] = useState("");
+    // const [modalTitle, setModalTitle] = useState("");
+    const [modalContent,setModalContent] = useState({});
+    const [modalVisible, setModalVisible] = useState(false);
+    const handleShowModal = data =>{
+        setModalVisible(true);
+        setModalContent(data);
+    };
+    console.log(modalContent);
+    useEffect(()=>{
+        handleFetchAnnounceRes({ page: 1})
+    }, []);
+    let announceRes = announceResource;
 
-        ]
+    const columns = [
+        {
+            title: '公告标题',
+            key: 'title',
+            width: '70%',
+            render: (data) => (
+                <span>
+                <a
+                    onClick={()=>handleShowModal(data)}
+                >{data.title}</a>
+                </span>
+            ),
 
-    ,
-        columns = [
-            {
-                title: '公告标题',
-                dataIndex: 'tit',
-                key: 'tit',
-            },
-            {
-                title: '发布时间',
-                width: '30%',
-                dataIndex: 'time',
-                key: 'time',
-            }];
+
+        },
+        {
+            title: '发布时间',
+            dataIndex: 'addTime',
+            key: 'addTime',
+            color: "blue"
+        }];
     return (
         <div className="wrap">
-        <div className = "homeWrap">
-            <div className = "homeLeft">
-                <Card style={{minHeight:'460px'}}>
-                    <Table
-                        dataSource = {dataSource}
-                        columns = {columns}
-                        bordered = {true}
-                    />
-                </Card>
+            <div className = "homeWrap">
+                <div className = "homeLeft">
+                    <Card
+                        title={"实验室公告"}
+                    >
+                        <Table
+                            bordered={true}
+                            dataSource = {announceRes}
+                            // style={{
+                            //     minHeight:370,
+                            // }}
+                            columns = {columns}
+                            // bordered={true}
+                            // size={"small"}
+                            pagination = {{
+                                total,
+                                onChange: e => handleFetchAnnounceRes({ page: e }),
+                                hideOnSinglePage:true
+                            }}
+                        />
+                        <Modal
+                            centered={true}
+                            title = {modalContent.title}
+                            visible={modalVisible}
+                            onOk={()=>(setModalVisible(!modalVisible))}
+                            onCancel={()=>(setModalVisible(!modalVisible))}
+                        >
+                            <div style={{width:"100%",marginBottom:"10px", display:"flex", justifyContent:"center"}}>{modalContent.userName}</div>
+                            <div dangerouslySetInnerHTML = {{__html: modalContent.content}} />
+                            <div style={{marginTop:"15px"}}>附件: {modalContent.fileName}</div>
+                        </Modal>
+                    </Card>
+                </div>
+                <div className = "homeRight">
+                    <Carousel autoplay>
+                        <div className={"img-1"}/>
+                        <div className={"img-2"}/>
+                        <div className={"img-3"}/>
+                        <div className={"img-4"}/>
+                    </Carousel>
+                </div>
             </div>
-            <div className = "homeRight">
-                <Carousel autoplay>
-                    <img src={img1}/>
-                    <img src={img2}/>
-                    <img src={img3}/>
-                    <img src={img4}/>
-                </Carousel>
-            </div>
-        </div>
         </div>
     )
 };
 
-export default Home;
+export default connect(
+    //允许我们将store中的数据作为props绑定到组件中，只要store发生了变化就会调用，必须返回一个纯对象，这个对象会与组件的 props 合并
+    state => ({
+        total: state.getIn(["announce", "total"]),
+        announceResource: state.getIn(["announce", "announceResource"])
+
+    }),
+    dispatch => ({
+        handleFetchAnnounceRes(page) {
+            dispatch(announce.queryAnnounce(page))
+        }
+    })
+)(Home);
