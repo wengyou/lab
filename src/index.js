@@ -11,7 +11,9 @@ import store from "./redux/store";
 const Root = () => (
     <HashRouter basename="/">
         <Provider store={store}>
+            <div className={"rootApp"}>
             <App />
+            </div>
         </Provider>
     </HashRouter>
 );

@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,UAAU;EACR,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,MAAM;EACd,kBAAO;IACL,KAAK,EAAE,KAAK;IACZ,OAAO,EAAE,IAAI",
-"sources": ["../../../../../../%E6%9E%81%E5%AE%A2/react/refactorLab/src/static/style/search.scss"],
+"mappings": "AAAA,UAAU;EACR,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,MAAM;EACd,aAAa,EAAE,GAAG;EAClB,kBAAO;IACL,KAAK,EAAE,KAAK;IACZ,OAAO,EAAE,IAAI",
+"sources": ["search.scss"],
 "names": [],
 "file": "search.css"
 }

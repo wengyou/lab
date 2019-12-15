@@ -1,5 +1,11 @@
 .dataWrapper {
   margin: 0 auto;
-  width: 64rem; }
+  width: 62rem; }
+
+.upload {
+  margin-left: 0.8rem; }
+
+.resDelete {
+  color: firebrick; }
 
 /*# sourceMappingURL=learningDatas.css.map */

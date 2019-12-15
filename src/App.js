@@ -1,20 +1,37 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Routes from "./Routes";
+import { BackTop } from "antd";
 import './static/style/reset.scss';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Tab from "./components/Tab";
+import {connect} from "react-redux";
+import {KEEP_ALIVE} from "./constants/actionTypes";
 
+let flag = true;
+function App(props) {
+    const { handleKeepAlive } = props;
+    useEffect(() => {
+        if (flag) handleKeepAlive();
+        flag = false;
 
-function App() {
+    },[]);
   return (
-    <div className="App">
+      <div
+          //style={{minHeight: 'calc("100vh - 250px")'}}
+          className="App column col-center-start">
         <Header />
-        <Tab/>
         <Routes/>
         <Footer/>
-    </div>
+        <BackTop />
+      </div>
   );
 }
 
-export default App;
+export default connect(
+    null,
+    dispatch => ({
+        handleKeepAlive() {
+            dispatch({ type: KEEP_ALIVE })
+        }
+    })
+)(App);

@@ -24,19 +24,21 @@ const showStatus = (status) => {
 
 const Service = axios.create({
     //基本域名 生产环境 ？ “线上服务器域名” ： “本地开发测试域名”
-    baseURL: process.env.NODE_ENV === 'production' ? 'http://localhost/otenki_girl/':'http://192.168.43.211:8080/',
+    baseURL: process.env.NODE_ENV === 'production' ? 'http://49.235.20.228:8080/':'http://49.235.20.228:8080/',
         headers: {
         get: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
         },
         post: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-        }
-    },
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+}
+},
     timeout: 30000,
     transformRequest: [ data => {
         // data = JSON.stringify(data);
-        data = qs.stringify(data);
+        if(Object.prototype.toString.call(data) !== '[object FormData]')
+            data = qs.stringify(data);
+        // console.log(data.prototype);
         return data
     }],
     validateStatus () {
@@ -56,7 +58,7 @@ Service.interceptors.request.use(config => {
     if (!isServer) {
         const token = window.localStorage.getItem('access');
         if (token) {
-            config.headers.common['X-GEEK'] = token;
+            config.headers.common['token'] = token;
         }
     }
     return config

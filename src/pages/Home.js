@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
-import {Table, Carousel, Card, Modal} from "antd";
+import {Table, Carousel, Card, Modal, Button} from "antd";
 import "../static/style/home.scss";
 import * as announce from "../redux/actionCreators/announce";
 import "../redux/sagas/announceSagas/announceSaga"
@@ -8,21 +8,15 @@ import "../redux/sagas/announceSagas/announceSaga"
 //首页的轮播图和公告
 const Home = props => {
     const {total, handleFetchAnnounceRes, announceResource } = props;
-    // const [modalContent, setModalContent] = useState("");
-    // const [modalUserName, setModalUserName] = useState("");
-    // const [modalFileName, setModalFileName] = useState("");
-    // const [modalTitle, setModalTitle] = useState("");
     const [modalContent,setModalContent] = useState({});
     const [modalVisible, setModalVisible] = useState(false);
     const handleShowModal = data =>{
         setModalVisible(true);
         setModalContent(data);
     };
-    console.log(modalContent);
     useEffect(()=>{
         handleFetchAnnounceRes({ page: 1})
     }, []);
-    let announceRes = announceResource;
 
     const columns = [
         {
@@ -54,13 +48,8 @@ const Home = props => {
                     >
                         <Table
                             bordered={true}
-                            dataSource = {announceRes}
-                            // style={{
-                            //     minHeight:370,
-                            // }}
+                            dataSource = {announceResource}
                             columns = {columns}
-                            // bordered={true}
-                            // size={"small"}
                             pagination = {{
                                 total,
                                 onChange: e => handleFetchAnnounceRes({ page: e }),
@@ -71,7 +60,12 @@ const Home = props => {
                             centered={true}
                             title = {modalContent.title}
                             visible={modalVisible}
-                            onOk={()=>(setModalVisible(!modalVisible))}
+                            footer={
+                                <Button
+                                    type = "primary"
+                                    onClick={()=>(setModalVisible(!modalVisible))}
+                                >确定</Button>
+                            }
                             onCancel={()=>(setModalVisible(!modalVisible))}
                         >
                             <div style={{width:"100%",marginBottom:"10px", display:"flex", justifyContent:"center"}}>{modalContent.userName}</div>

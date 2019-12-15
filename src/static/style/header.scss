@@ -1,4 +1,4 @@
-header{
+.userHeader{
   width: 64rem;
   height: 7.75rem;
   margin: 0 auto;
@@ -11,12 +11,50 @@ header{
 //头部导航栏
 #headerNav{
   position: absolute;
-  right: 3rem;
-  bottom: 0.5rem;
+  right: .5rem;
+  bottom: .2rem;
+  color: black;
   li{
-    margin-left: 1rem;
+    padding: 0 6px;
   }
   .navItem{
     cursor: pointer;
+  }
+  .name{
+    color: #40A9FF;
+    cursor: pointer;
+  }
+  .studentMessage{
+    color: #40A9FF;
+    cursor: pointer;
+  }
+}
+//修改学生信息模态框
+.modifyInput{
+  width: 80%;
+  margin: 0 1rem;
+}
+
+//教师查询学生信息
+.studentMesWrapper{
+  width: 100%;
+  margin: 0 auto;
+  .searchWrapper{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2rem;
+  }
+}
+//查询学生的搜索框样式
+.searchStudentWrapper{
+  width: 22rem;
+  display: flex;
+  Select{
+    width: 6rem;
+  }
+  .studentSearch{
+    width: 14rem;
   }
 }

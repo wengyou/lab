@@ -1,9 +1,9 @@
 import {notification} from "antd";
 import CryptoJS from "crypto-js";
 //密钥
-const key = CryptoJS.enc.Utf8.parse("$GeEk_1s_AwEs0Me!@#");
+const key = CryptoJS.enc.Utf8.parse("GeEk_1s_AwEs0Me!");
 //密钥偏移量
-const iv = CryptoJS.enc.Utf8.parse('ImH@ckEr');
+const iv = CryptoJS.enc.Utf8.parse('ImH@ckErabcdefgh');
 
 export const random = (lower, upper) => {
     return Math.floor(Math.random() * (upper - lower)) + lower;
@@ -29,7 +29,9 @@ export const scrollAnimation = (currentY = 0, targetY) => {
 export const openNotification = (message, description = " ") => {
     notification.open({
         message,
-        description
+        description,
+        placement: "bottomRight",
+        duration: "2"
     });
 };
 
@@ -93,3 +95,25 @@ export const Decrypt = str => {
 };
 
 //对象转FormData对象
+
+//获取数组中对象的属性
+export const GetArrayProps= (array, key) => {
+    let key0 = key || "value";
+    let res = [];
+    if (array) {
+        array.forEach(function(t) {
+            res.push(t[key0]);
+        });
+    }
+    return res;
+};
+
+//绑定键盘事件
+export const OnKeyDown = e => {
+    e.onkeydown = function (event) {
+        const code = event.keyCode;
+        if (code === 13) {
+            e.focus();
+        }
+    }
+};

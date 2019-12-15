@@ -4,13 +4,12 @@
   justify-content: center; }
 
 .homeWrap {
-  width: 1024px;
+  width: 64rem;
   display: flex;
-  justify-content: space-between;
-  padding: 10px 10px; }
+  justify-content: space-between; }
 
 .homeLeft {
-  width: 460px;
+  width: 30rem;
   height: 470px;
   border: 1px solid #E8E8E8;
   padding: 5px; }

@@ -1,20 +1,40 @@
-header {
-  width: 64rem;
-  height: 7.75rem;
-  margin: 0 auto;
-  background: url("../images/h1.gif") no-repeat;
-  position: relative; }
+/*
+Error: Invalid GBK character "\xE5"
+        on line 11 of header.scss
 
-.row {
-  margin-top: 0.6rem; }
+6:   position: relative;
+7: }
+8: .row{
+9:   margin-top: 0.6rem;
+10: }
+11: //头部导航栏
+12: #headerNav{
+13:   position: absolute;
+14:   right: .5rem;
+15:   bottom: .2rem;
+16:   color: black;
 
-#headerNav {
-  position: absolute;
-  right: 3rem;
-  bottom: 0.5rem; }
-  #headerNav li {
-    margin-left: 1rem; }
-  #headerNav .navItem {
-    cursor: pointer; }
-
-/*# sourceMappingURL=header.css.map */
+Backtrace:
+header.scss:11
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1090:in `rescue in block in find_encoding_error'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1087:in `block in find_encoding_error'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1086:in `each'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1086:in `each_with_index'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:1086:in `find_encoding_error'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/util.rb:814:in `check_sass_encoding'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:444:in `check_encoding!'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:400:in `_to_tree'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Ruby26-x64/bin/sass:23:in `load'
+C:/Ruby26-x64/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid GBK character \"\xE5\"\A         on line 11 of header.scss\A \A 6:   position: relative;\A 7: }\A 8: .row{\A 9:   margin-top: 0.6rem;\A 10: }\A 11: //头部导航栏\A 12: #headerNav{\A 13:   position: absolute;\A 14:   right: .5rem;\A 15:   bottom: .2rem;\A 16:   color: black;"; }
