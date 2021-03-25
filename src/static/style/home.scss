@@ -1,0 +1,28 @@
+.wrap{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.homeWrap{
+  width: 64rem;
+  display: flex;
+  justify-content: space-between;
+}
+.homeLeft{
+  width: 27rem;
+  height: 29.375rem;
+  border: 1px solid #E8E8E8;
+  padding: .3125rem;
+}
+.homeRight{
+  width: 36.125rem;
+  height: auto;
+}
+@for $i from 1 through 6 {
+  .img-#{$i} {
+    background-image: url("../../static/images/#{$i}.png");
+    background-size: 36.125rem 29.375rem;
+    width: 33.125rem;
+    height: 29.375rem;
+  }
+}

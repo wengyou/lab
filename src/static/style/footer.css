@@ -1,0 +1,24 @@
+.footerWrap {
+  display: flex;
+  justify-content: center; }
+
+.footer {
+  width: 64rem;
+  height: 8.25rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background: url("../images/foot.jpg"); }
+  .footer .footerTop {
+    height: 7.125rem;
+    padding-top: 4.375rem; }
+    .footer .footerTop p {
+      font-size: 0.8125rem;
+      margin-bottom: 0.625rem; }
+    .footer .footerTop a {
+      cursor: pointer; }
+  .footer .footerBottom {
+    height: 1.125rem;
+    display: flex;
+    justify-content: center; }
+
+/*# sourceMappingURL=footer.css.map */

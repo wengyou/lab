@@ -1,0 +1,48 @@
+.userHeader {
+  width: 64rem;
+  height: 7.75rem;
+  margin: 0 auto;
+  background: url("../images/h1.gif") no-repeat;
+  position: relative; }
+
+.row {
+  margin-top: 0.6rem; }
+
+#headerNav {
+  position: absolute;
+  right: .5rem;
+  bottom: .2rem;
+  color: black; }
+  #headerNav li {
+    padding: 0 6px; }
+  #headerNav .navItem {
+    cursor: pointer; }
+  #headerNav .name {
+    color: #40A9FF;
+    cursor: pointer; }
+  #headerNav .studentMessage {
+    color: #40A9FF;
+    cursor: pointer; }
+
+.modifyInput {
+  width: 80%;
+  margin: 0 1rem; }
+
+.studentMesWrapper {
+  width: 100%;
+  margin: 0 auto; }
+  .studentMesWrapper .searchWrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    line-height: 2rem; }
+
+.searchStudentWrapper {
+  width: 22rem;
+  display: flex; }
+  .searchStudentWrapper Select {
+    width: 6rem; }
+  .searchStudentWrapper .studentSearch {
+    width: 14rem; }
+
+/*# sourceMappingURL=header.css.map */
